@@ -8,7 +8,6 @@ const ThemeSwitcher = () => {
 
   useEffect(() => {
     const localTheme = localStorage.getItem("theme");
-
     toggleTheme(localTheme);
   }, []);
 
@@ -16,7 +15,7 @@ const ThemeSwitcher = () => {
     if (!theme) return;
 
     if (theme === "dark") {
-      document.documentElement.classList.add(theme);
+      document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
