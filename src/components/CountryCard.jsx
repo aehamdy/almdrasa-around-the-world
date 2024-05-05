@@ -15,7 +15,7 @@ const CountryCard = ({ name, population, region, capital, flag }) => {
             <span className="font-light">{population}</span>
           </p>
           <p>
-            <span className="font-semibold">Region</span>
+            <span className="font-semibold">Region: </span>
             <span className="font-light">{region}</span>
           </p>
           <p>
