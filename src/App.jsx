@@ -12,7 +12,7 @@ function App() {
           <SearchInput />
           <RegionMenu />
         </div>
-        <CountryList data={countriesList} />
+        <CountryList />
       </div>
     </div>
   );
