@@ -1,31 +1,17 @@
-import { useEffect, useState } from "react";
 import SearchInput from "../components/SearchInput";
 import RegionMenu from "../components/RegionMenu";
 import CountryList from "../components/CountryList";
 import ShowMessage from "../components/ShowMessage";
+import { useFetchData } from "../useFetchData";
 
 const Home = () => {
-  const [countriesList, setCountriesList] = useState([]);
-  const [filteredCountries, setFilteredCountries] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-
-  useEffect(() => {
-    fetchCountriesData();
-  }, []);
-
-  const fetchCountriesData = () => {
-    setIsLoading(true);
-
-    fetch("https://restcountries.com/v3.1/all")
-      .then((response) => response.json())
-      .then((data) => {
-        setCountriesList(data);
-        setFilteredCountries(data);
-      })
-      .catch(() => setIsError(true))
-      .finally(() => setIsLoading(false));
-  };
+  const {
+    countriesList,
+    setFilteredCountries,
+    filteredCountries,
+    isError,
+    isLoading,
+  } = useFetchData();
 
   return (
     <>
