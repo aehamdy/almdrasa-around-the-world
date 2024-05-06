@@ -1,4 +1,5 @@
 import CountryCard from "./CountryCard";
+import EmptySearch from "./EmptySearch";
 
 const CountryList = ({ data }) => {
   return (
@@ -15,7 +16,7 @@ const CountryList = ({ data }) => {
           />
         ))
       ) : (
-        <p>Empty</p>
+        <EmptySearch />
       )}
     </div>
   );
