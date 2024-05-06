@@ -21,7 +21,6 @@ function App() {
     fetch("https://restcountries.com/v3.1/all")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setCountriesList(data);
         setFilteredCountries(data);
       })
@@ -37,7 +36,10 @@ function App() {
         {!isError && !isLoading && (
           <>
             <div className="flex flex-col justify-between gap-10 md:h-14 md:flex-row md:gap-0">
-              <SearchInput />
+              <SearchInput
+                countriesList={countriesList}
+                filterCountriesList={setFilteredCountries}
+              />
               <RegionMenu
                 countriesList={countriesList}
                 filterCountriesList={setFilteredCountries}
