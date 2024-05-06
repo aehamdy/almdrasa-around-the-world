@@ -7,6 +7,7 @@ import ShowMessage from "./components/ShowMessage";
 
 function App() {
   const [countriesList, setCountriesList] = useState([]);
+  const [filteredCountries, setFilteredCountries] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -22,6 +23,7 @@ function App() {
       .then((data) => {
         console.log(data);
         setCountriesList(data);
+        setFilteredCountries(data);
       })
       .catch(() => setIsError(true))
       .finally(() => setIsLoading(false));
@@ -36,9 +38,12 @@ function App() {
           <>
             <div className="flex flex-col justify-between gap-10 md:h-14 md:flex-row md:gap-0">
               <SearchInput />
-              <RegionMenu />
+              <RegionMenu
+                countriesList={countriesList}
+                filterCountriesList={setFilteredCountries}
+              />
             </div>
-            <CountryList data={countriesList} />
+            <CountryList data={filteredCountries} />
           </>
         )}
       </div>
