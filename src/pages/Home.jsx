@@ -6,7 +6,7 @@ import { useFetchData } from "../useFetchData";
 
 const Home = () => {
   const {
-    countriesList,
+    result,
     setFilteredCountries,
     filteredCountries,
     isError,
@@ -21,11 +21,11 @@ const Home = () => {
         <>
           <div className="flex flex-col justify-between gap-10 md:h-14 md:flex-row md:gap-0">
             <SearchInput
-              countriesList={countriesList}
+              countriesList={result}
               filterCountriesList={setFilteredCountries}
             />
             <RegionMenu
-              countriesList={countriesList}
+              countriesList={result}
               filterCountriesList={setFilteredCountries}
             />
           </div>

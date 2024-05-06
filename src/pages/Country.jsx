@@ -1,7 +1,11 @@
 import { useParams } from "react-router-dom";
+import { useFetchData } from "../useFetchData";
 
 const Country = () => {
   const { country } = useParams();
+  const { result, isLoading, isError } = useFetchData(country);
+  console.log(result);
+
   return (
     <>
       <div className="">
